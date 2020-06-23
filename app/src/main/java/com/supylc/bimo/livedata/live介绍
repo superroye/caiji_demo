@@ -1,0 +1,14 @@
+
+LiveData是什么，跟EventBus有什么不同
+
+LiveData使用：
+创建ViewModel类，新建LiveData
+Activity或Fragment，通过ViewModelProviders获取ViewModel，并监听LiveData
+
+Activity(Fragment)生命周期感知，ViewModel和LiveData的观察者自动释放
+
+Activity(Fragment)生命周期监听，可以在任何类监听activity，在onXxxxx()函数写逻辑
+
+LiveData数据源，触发其他数据变化
+
+kotlin扩展，结合协程

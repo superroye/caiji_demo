@@ -1,0 +1,66 @@
+//所有工程都要用的公共配置，由各个子模块直接apply from
+//apply plugin: 'com.jakewharton.hugo'
+
+
+android {
+    compileSdkVersion = 'android-28'
+    buildToolsVersion = "27.0.3"
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 28
+        resConfigs "zh"  //去除多国语言资源，只支持中文
+    }
+
+    packagingOptions {
+        exclude 'META-INF/MANIFEST.MF'
+        exclude 'META-INF/NOTICE.TXT'
+        exclude 'META-INF/LICENSE.TXT'
+        exclude 'META-INF/LICENSE.TXT'
+        exclude 'META-INF/LICENSE.txt'
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+    dexOptions {
+        jumboMode = true
+        javaMaxHeapSize "4g"
+        preDexLibraries = false
+    }
+
+    aaptOptions {
+        //构建时自动压缩图片
+        cruncherEnabled false
+    }
+
+
+    // lint所有选项请单独加入
+    lintOptions {
+        checkReleaseBuilds true
+        abortOnError false
+        check 'NewApi', 'InlinedApi'
+        showAll true
+        textReport true
+        textOutput 'stdout'
+        xmlReport false
+        //xmlOutput file("${rootDir}/build-outputs/lint/${project.name}_lint-report.xml")
+        htmlReport true
+        htmlOutput file("${rootDir}/build-outputs/lint/${project.name}_lint-report.html")
+    }
+
+}
+
+
+if(project.hasProperty("FORCE_REFRESH_DEPENDENCE") && FORCE_REFRESH_DEPENDENCE == "true"){
+    configurations.all {
+        resolutionStrategy.cacheDynamicVersionsFor 5, 'seconds'
+        resolutionStrategy.cacheChangingModulesFor 5, 'seconds'
+    }
+}
+
+
+

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/common_badge_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="7dp"
+        android:background="@drawable/common_middle_badge_bg"
+        android:gravity="center"
+
+        tools:text="我的"
+        android:paddingRight="3dp"
+        android:textColor="@color/white"
+        tools:layout_height="14dp"
+        tools:paddingLeft="11dp"
+        tools:textSize="10dp" />
+
+    <ImageView
+        android:id="@+id/common_badge_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center|left"
+        android:adjustViewBounds="true"
+        android:gravity="center"
+        android:src="@drawable/common_badge_bg"
+        tools:layout_width="17dp"
+        tools:layout_height="17dp" />
+
+</RelativeLayout>

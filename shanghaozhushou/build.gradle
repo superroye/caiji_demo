@@ -1,0 +1,18 @@
+apply plugin: 'com.android.library'
+
+apply from: "${rootDir}/gradle_config/kotlin_config.gradle"
+apply from: "${rootDir}/gradle_config/support_config.gradle"
+
+android {
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+}

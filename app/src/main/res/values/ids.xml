@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item type="id" name="statusbarutil_fake_status_bar_view"/>
+    <item type="id" name="statusbarutil_translucent_view"/>
+    <item type="id" name="stub_view" />
+    <item type="id" name="key_click_limit" />
+    <item type="id" name="feature_badge_view"></item>
+</resources>

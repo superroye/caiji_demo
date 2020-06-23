@@ -1,0 +1,45 @@
+<resources>
+
+    <declare-styleable name="im">
+        <attr name="imStyle" format="reference"/>
+        <attr name="sssss" format="reference"/>
+        <attr name="item1" format="color"/>
+        <attr name="item2" format="color"/>
+        <attr name="item3" format="dimension"/>
+    </declare-styleable>
+
+    <style name="imStyle_all">
+        <item name="item1">@color/colorAccent</item>
+        <item name="item2">@color/colorPrimary</item>
+        <item name="item3">12dp</item>
+    </style>
+
+    <style name="imStyle_all_1">
+        <item name="item1">@color/colorAccent</item>
+        <item name="item2">@color/colorPrimary</item>
+        <item name="item3">14dp</item>
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="imStyle">@style/imStyle_all_1</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    
+    <style name="inputTest" parent="AppTheme">
+        <item name="android:windowBackground">@color/white</item>
+    </style>
+
+</resources>

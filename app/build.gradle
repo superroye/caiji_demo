@@ -1,0 +1,36 @@
+apply plugin: 'com.android.application'
+
+apply from: "${rootDir}/gradle_config/global_config.gradle"
+apply from: "${rootDir}/gradle_config/kotlin_config.gradle"
+apply from: "${rootDir}/gradle_config/support_config.gradle"
+
+android {
+    defaultConfig {
+        applicationId "com.supylc.bimo"
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.debug
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/proguard/coroutines.pro'
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    api project(":kotlintest")
+    api project(":shanghaozhushou")
+    api project(":uilibs")
+
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+}

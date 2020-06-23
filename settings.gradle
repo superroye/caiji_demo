@@ -1,0 +1,2 @@
+include ':app', ':kotlintest', ':shanghaozhushou'
+include ':uilibs'

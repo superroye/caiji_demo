@@ -1,0 +1,5 @@
+/build
+/src/androidTest/java/com/supylc/kotlintest/
+/src/androidTest/java/com/supylc/kotlintest/ExampleInstrumentedTest.java
+/src/test/java/com/supylc/kotlintest/
+/src/test/java/com/supylc/kotlintest/ExampleUnitTest.java
