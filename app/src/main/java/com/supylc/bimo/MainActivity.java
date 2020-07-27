@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Log.i("test","=====onCreate end");
 
-        startActivity(new Intent(this, LiveDataTestActivity.class));
+        startActivity(new Intent(this, KotlinActivity.class));
     }
 
     @Override

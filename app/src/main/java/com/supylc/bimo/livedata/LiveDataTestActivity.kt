@@ -32,6 +32,7 @@ class LiveDataTestActivity : AppCompatActivity() {
         lifecycle.addObserver(listViewModel)
 
         setContentView(R.layout.activity_live_data)
+
         initView()
         setListener()
         //设置liveData的观察者

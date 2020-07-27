@@ -3,6 +3,7 @@ apply plugin: 'com.android.application'
 apply from: "${rootDir}/gradle_config/global_config.gradle"
 apply from: "${rootDir}/gradle_config/kotlin_config.gradle"
 apply from: "${rootDir}/gradle_config/support_config.gradle"
+apply plugin: 'kotlin-android-extensions'
 
 android {
     defaultConfig {

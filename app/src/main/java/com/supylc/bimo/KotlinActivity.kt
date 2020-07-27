@@ -4,14 +4,21 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.supylc.kotlintest.CallbackDemo
-import kotlinx.android.synthetic.main.activity_kotlin.*
-import kotlinx.coroutines.flow.*
+import com.supylc.kotlintest.TestCoroutine
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.async
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.coroutines.resume
+import kotlin.coroutines.suspendCoroutine
 
 class KotlinActivity : AppCompatActivity() {
 
     var mText: TextView? = null
     var textView5: TextView? = null
+    val TAG = "KotlinActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,11 +28,10 @@ class KotlinActivity : AppCompatActivity() {
         mText = findViewById(R.id.text)
         textView5 = findViewById(R.id.textView5)
 
-        text_View1.text = "21414134234"
-        var ss: String? = null
-        Log.d("aa", "aaaa=====")
-        Log.d("aa", "!!!=====")
-
+        GlobalScope.launch {
+            var str = TestCoroutine.test()
+            Log.d(TAG, "==========str="+str)
+        }
 
     }
 
@@ -37,13 +43,13 @@ class KotlinActivity : AppCompatActivity() {
     }
 
 
-    fun runOnBg(): Boolean {
-        run {
-            Log.d("tt", "run========" + Thread.currentThread().name + " "+CallbackDemo.testCallBack1{ a, b->
-                a.toString()+"_____"+b
-            } )
-            return true
+    suspend fun runOnBg(): String = suspendCoroutine {
+        Log.d(TAG, "=====first thread=" + Thread.currentThread().id)
+        GlobalScope.launch {
+            async {
+                Log.d(TAG, "=====in thread=" + Thread.currentThread().id)
+                it.resume("abcd")
+            }
         }
-
     }
 }
